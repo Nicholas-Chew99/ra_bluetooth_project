@@ -1,0 +1,6 @@
+C:\Users\nicho\Desktop\school\research assistant\bluetooth project\bluetooth isr\Design01.cydsn\Design01.cyprj|5255d29e-1f99-4556-a628-756c5aefbed7
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|a43bcc66-9316-4edd-8c5c-d4573fdea1e2
+C:\Users\nicho\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|3708ee31-7a05-444a-a4fd-390592d6d0cf
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|bfc915a9-10c6-4c7e-9a6d-80eedf2a5793
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|64e59efe-b36e-4979-bdf5-d46b23fb81fd
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9164b727-4d06-4dcb-ae0d-983f1a997113

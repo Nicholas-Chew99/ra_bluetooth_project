@@ -1,0 +1,6 @@
+C:\Users\nicho\Desktop\school\research assistant\bluetooth project\bluetooth normal polling\Design01.cydsn\Design01.cyprj|744639d8-0992-482a-b335-4798a5ff5de9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|c583bb4d-1350-47d5-b056-2857c86af917
+C:\Users\nicho\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|08063967-1e26-4047-9f22-283d8bd269d6
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|1637f5c1-5e3e-485a-86d2-8800a982ebac
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|3284311d-1160-45de-a07a-867d0e27abba
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9f327c1c-6db7-40f5-91fa-494a73c2d3fe

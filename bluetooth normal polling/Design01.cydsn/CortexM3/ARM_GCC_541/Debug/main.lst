@@ -1,0 +1,934 @@
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** 
+  14:main.c        **** int main(void)
+  15:main.c        **** {
+  28              		.loc 1 15 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  16:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  36              		.loc 1 16 0
+  37              		.syntax unified
+  38              	@ 16 "main.c" 1
+  39 0002 62B6     		CPSIE   i
+  40              	@ 0 "" 2
+  17:main.c        **** 
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 2
+
+
+  18:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  19:main.c        ****     uint8 ch;
+  20:main.c        ****     UART_1_Start();
+  41              		.loc 1 20 0
+  42              		.thumb
+  43              		.syntax unified
+  44 0004 FFF7FEFF 		bl	UART_1_Start
+  45              	.LVL0:
+  46              	.L7:
+  21:main.c        ****     char Rx;
+  22:main.c        ****     for(;;)
+  23:main.c        ****     {
+  24:main.c        ****         /* Place your application code here. */
+  25:main.c        ****         if(UART_1_GetRxBufferSize() > 0)
+  47              		.loc 1 25 0
+  48 0008 FFF7FEFF 		bl	UART_1_GetRxBufferSize
+  49              	.LVL1:
+  50 000c 70B3     		cbz	r0, .L2
+  26:main.c        **** 		{
+  27:main.c        **** 	        Rx = UART_1_GetChar();
+  51              		.loc 1 27 0
+  52 000e FFF7FEFF 		bl	UART_1_GetChar
+  53              	.LVL2:
+  28:main.c        ****             if (Rx == 'g') {
+  54              		.loc 1 28 0
+  55 0012 6728     		cmp	r0, #103
+  56 0014 08D1     		bne	.L3
+  29:main.c        ****                 UART_1_PutChar(Rx);
+  57              		.loc 1 29 0
+  58 0016 FFF7FEFF 		bl	UART_1_PutChar
+  59              	.LVL3:
+  30:main.c        ****                 Pin_1_Write(~Pin_1_Read());
+  60              		.loc 1 30 0
+  61 001a FFF7FEFF 		bl	Pin_1_Read
+  62              	.LVL4:
+  63 001e C043     		mvns	r0, r0
+  64 0020 C0B2     		uxtb	r0, r0
+  65 0022 FFF7FEFF 		bl	Pin_1_Write
+  66              	.LVL5:
+  67 0026 1FE0     		b	.L4
+  68              	.LVL6:
+  69              	.L3:
+  31:main.c        ****                 //CyDelay(1);
+  32:main.c        ****             } else if (Rx == 'r'){
+  70              		.loc 1 32 0
+  71 0028 7228     		cmp	r0, #114
+  72 002a 08D1     		bne	.L5
+  33:main.c        ****                 UART_1_PutChar(Rx);
+  73              		.loc 1 33 0
+  74 002c FFF7FEFF 		bl	UART_1_PutChar
+  75              	.LVL7:
+  34:main.c        ****                 Pin_red_Write(~Pin_red_Read());
+  76              		.loc 1 34 0
+  77 0030 FFF7FEFF 		bl	Pin_red_Read
+  78              	.LVL8:
+  79 0034 C043     		mvns	r0, r0
+  80 0036 C0B2     		uxtb	r0, r0
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 3
+
+
+  81 0038 FFF7FEFF 		bl	Pin_red_Write
+  82              	.LVL9:
+  83 003c 14E0     		b	.L4
+  84              	.LVL10:
+  85              	.L5:
+  35:main.c        ****                 //CyDelay(1);
+  36:main.c        ****             } else if (Rx == 'o') {
+  86              		.loc 1 36 0
+  87 003e 6F28     		cmp	r0, #111
+  88 0040 08D1     		bne	.L6
+  37:main.c        ****                 UART_1_PutChar(Rx);
+  89              		.loc 1 37 0
+  90 0042 FFF7FEFF 		bl	UART_1_PutChar
+  91              	.LVL11:
+  38:main.c        ****                 Pin_1_Write(0);
+  92              		.loc 1 38 0
+  93 0046 0020     		movs	r0, #0
+  94 0048 FFF7FEFF 		bl	Pin_1_Write
+  95              	.LVL12:
+  39:main.c        ****                 Pin_red_Write(0);
+  96              		.loc 1 39 0
+  97 004c 0020     		movs	r0, #0
+  98 004e FFF7FEFF 		bl	Pin_red_Write
+  99              	.LVL13:
+ 100 0052 09E0     		b	.L4
+ 101              	.LVL14:
+ 102              	.L6:
+  40:main.c        ****             } else if (Rx == 'a') {
+ 103              		.loc 1 40 0
+ 104 0054 6128     		cmp	r0, #97
+ 105 0056 07D1     		bne	.L4
+  41:main.c        ****                 UART_1_PutChar(Rx);
+ 106              		.loc 1 41 0
+ 107 0058 FFF7FEFF 		bl	UART_1_PutChar
+ 108              	.LVL15:
+  42:main.c        ****                 Pin_1_Write(1);
+ 109              		.loc 1 42 0
+ 110 005c 0120     		movs	r0, #1
+ 111 005e FFF7FEFF 		bl	Pin_1_Write
+ 112              	.LVL16:
+  43:main.c        ****                 Pin_red_Write(1);
+ 113              		.loc 1 43 0
+ 114 0062 0120     		movs	r0, #1
+ 115 0064 FFF7FEFF 		bl	Pin_red_Write
+ 116              	.LVL17:
+ 117              	.L4:
+  44:main.c        ****             }
+  45:main.c        ****             
+  46:main.c        **** 	        //UART_1_PutChar(Rx);
+  47:main.c        ****             UART_1_ClearRxBuffer();
+ 118              		.loc 1 47 0
+ 119 0068 FFF7FEFF 		bl	UART_1_ClearRxBuffer
+ 120              	.LVL18:
+ 121              	.L2:
+  48:main.c        ****             //Pin_1_Write(~Pin_1_Read());
+  49:main.c        **** 		}
+  50:main.c        ****         
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 4
+
+
+  51:main.c        ****         if (Pin_2_Read() == 0) {
+ 122              		.loc 1 51 0
+ 123 006c FFF7FEFF 		bl	Pin_2_Read
+ 124              	.LVL19:
+ 125 0070 0028     		cmp	r0, #0
+ 126 0072 C9D1     		bne	.L7
+  52:main.c        ****             Pin_1_Write(0);
+ 127              		.loc 1 52 0
+ 128 0074 FFF7FEFF 		bl	Pin_1_Write
+ 129              	.LVL20:
+  53:main.c        ****             CyDelay(500);
+ 130              		.loc 1 53 0
+ 131 0078 4FF4FA70 		mov	r0, #500
+ 132 007c FFF7FEFF 		bl	CyDelay
+ 133              	.LVL21:
+ 134 0080 C2E7     		b	.L7
+ 135              		.cfi_endproc
+ 136              	.LFE63:
+ 137              		.size	main, .-main
+ 138 0082 00BF     		.text
+ 139              	.Letext0:
+ 140              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 141              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 142              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 143              		.file 5 "Generated_Source\\PSoC5/UART_1.h"
+ 144              		.file 6 "Generated_Source\\PSoC5/Pin_1.h"
+ 145              		.file 7 "Generated_Source\\PSoC5/Pin_red.h"
+ 146              		.file 8 "Generated_Source\\PSoC5/Pin_2.h"
+ 147              		.file 9 "Generated_Source\\PSoC5/CyLib.h"
+ 148              		.file 10 "Generated_Source\\PSoC5/core_cm3.h"
+ 149              		.section	.debug_info,"",%progbits
+ 150              	.Ldebug_info0:
+ 151 0000 44020000 		.4byte	0x244
+ 152 0004 0400     		.2byte	0x4
+ 153 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 154 000a 04       		.byte	0x4
+ 155 000b 01       		.uleb128 0x1
+ 156 000c BC000000 		.4byte	.LASF28
+ 157 0010 0C       		.byte	0xc
+ 158 0011 09020000 		.4byte	.LASF29
+ 159 0015 00000000 		.4byte	.LASF30
+ 160 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 161 001d 00000000 		.4byte	0
+ 162 0021 00000000 		.4byte	.Ldebug_line0
+ 163 0025 02       		.uleb128 0x2
+ 164 0026 01       		.byte	0x1
+ 165 0027 06       		.byte	0x6
+ 166 0028 34020000 		.4byte	.LASF0
+ 167 002c 02       		.uleb128 0x2
+ 168 002d 01       		.byte	0x1
+ 169 002e 08       		.byte	0x8
+ 170 002f AE000000 		.4byte	.LASF1
+ 171 0033 02       		.uleb128 0x2
+ 172 0034 02       		.byte	0x2
+ 173 0035 05       		.byte	0x5
+ 174 0036 15020000 		.4byte	.LASF2
+ 175 003a 02       		.uleb128 0x2
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 5
+
+
+ 176 003b 02       		.byte	0x2
+ 177 003c 07       		.byte	0x7
+ 178 003d 5C010000 		.4byte	.LASF3
+ 179 0041 03       		.uleb128 0x3
+ 180 0042 83000000 		.4byte	.LASF9
+ 181 0046 02       		.byte	0x2
+ 182 0047 3F       		.byte	0x3f
+ 183 0048 4C000000 		.4byte	0x4c
+ 184 004c 02       		.uleb128 0x2
+ 185 004d 04       		.byte	0x4
+ 186 004e 05       		.byte	0x5
+ 187 004f 1F020000 		.4byte	.LASF4
+ 188 0053 02       		.uleb128 0x2
+ 189 0054 04       		.byte	0x4
+ 190 0055 07       		.byte	0x7
+ 191 0056 4A010000 		.4byte	.LASF5
+ 192 005a 02       		.uleb128 0x2
+ 193 005b 08       		.byte	0x8
+ 194 005c 05       		.byte	0x5
+ 195 005d FB010000 		.4byte	.LASF6
+ 196 0061 02       		.uleb128 0x2
+ 197 0062 08       		.byte	0x8
+ 198 0063 07       		.byte	0x7
+ 199 0064 B1010000 		.4byte	.LASF7
+ 200 0068 04       		.uleb128 0x4
+ 201 0069 04       		.byte	0x4
+ 202 006a 05       		.byte	0x5
+ 203 006b 696E7400 		.ascii	"int\000"
+ 204 006f 02       		.uleb128 0x2
+ 205 0070 04       		.byte	0x4
+ 206 0071 07       		.byte	0x7
+ 207 0072 A4010000 		.4byte	.LASF8
+ 208 0076 03       		.uleb128 0x3
+ 209 0077 DF010000 		.4byte	.LASF10
+ 210 007b 03       		.byte	0x3
+ 211 007c 2C       		.byte	0x2c
+ 212 007d 41000000 		.4byte	0x41
+ 213 0081 05       		.uleb128 0x5
+ 214 0082 A8000000 		.4byte	.LASF11
+ 215 0086 04       		.byte	0x4
+ 216 0087 E401     		.2byte	0x1e4
+ 217 0089 2C000000 		.4byte	0x2c
+ 218 008d 02       		.uleb128 0x2
+ 219 008e 04       		.byte	0x4
+ 220 008f 04       		.byte	0x4
+ 221 0090 A2000000 		.4byte	.LASF12
+ 222 0094 02       		.uleb128 0x2
+ 223 0095 08       		.byte	0x8
+ 224 0096 04       		.byte	0x4
+ 225 0097 89010000 		.4byte	.LASF13
+ 226 009b 02       		.uleb128 0x2
+ 227 009c 01       		.byte	0x1
+ 228 009d 08       		.byte	0x8
+ 229 009e 10020000 		.4byte	.LASF14
+ 230 00a2 02       		.uleb128 0x2
+ 231 00a3 08       		.byte	0x8
+ 232 00a4 04       		.byte	0x4
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 6
+
+
+ 233 00a5 28020000 		.4byte	.LASF15
+ 234 00a9 02       		.uleb128 0x2
+ 235 00aa 04       		.byte	0x4
+ 236 00ab 07       		.byte	0x7
+ 237 00ac E7010000 		.4byte	.LASF16
+ 238 00b0 06       		.uleb128 0x6
+ 239 00b1 90010000 		.4byte	.LASF31
+ 240 00b5 01       		.byte	0x1
+ 241 00b6 0E       		.byte	0xe
+ 242 00b7 68000000 		.4byte	0x68
+ 243 00bb 00000000 		.4byte	.LFB63
+ 244 00bf 82000000 		.4byte	.LFE63-.LFB63
+ 245 00c3 01       		.uleb128 0x1
+ 246 00c4 9C       		.byte	0x9c
+ 247 00c5 BD010000 		.4byte	0x1bd
+ 248 00c9 07       		.uleb128 0x7
+ 249 00ca 636800   		.ascii	"ch\000"
+ 250 00cd 01       		.byte	0x1
+ 251 00ce 13       		.byte	0x13
+ 252 00cf 81000000 		.4byte	0x81
+ 253 00d3 08       		.uleb128 0x8
+ 254 00d4 527800   		.ascii	"Rx\000"
+ 255 00d7 01       		.byte	0x1
+ 256 00d8 15       		.byte	0x15
+ 257 00d9 9B000000 		.4byte	0x9b
+ 258 00dd 00000000 		.4byte	.LLST0
+ 259 00e1 09       		.uleb128 0x9
+ 260 00e2 08000000 		.4byte	.LVL0
+ 261 00e6 CE010000 		.4byte	0x1ce
+ 262 00ea 09       		.uleb128 0x9
+ 263 00eb 0C000000 		.4byte	.LVL1
+ 264 00ef D9010000 		.4byte	0x1d9
+ 265 00f3 09       		.uleb128 0x9
+ 266 00f4 12000000 		.4byte	.LVL2
+ 267 00f8 E4010000 		.4byte	0x1e4
+ 268 00fc 09       		.uleb128 0x9
+ 269 00fd 1A000000 		.4byte	.LVL3
+ 270 0101 EF010000 		.4byte	0x1ef
+ 271 0105 09       		.uleb128 0x9
+ 272 0106 1E000000 		.4byte	.LVL4
+ 273 010a FA010000 		.4byte	0x1fa
+ 274 010e 09       		.uleb128 0x9
+ 275 010f 26000000 		.4byte	.LVL5
+ 276 0113 05020000 		.4byte	0x205
+ 277 0117 09       		.uleb128 0x9
+ 278 0118 30000000 		.4byte	.LVL7
+ 279 011c EF010000 		.4byte	0x1ef
+ 280 0120 09       		.uleb128 0x9
+ 281 0121 34000000 		.4byte	.LVL8
+ 282 0125 10020000 		.4byte	0x210
+ 283 0129 09       		.uleb128 0x9
+ 284 012a 3C000000 		.4byte	.LVL9
+ 285 012e 1B020000 		.4byte	0x21b
+ 286 0132 09       		.uleb128 0x9
+ 287 0133 46000000 		.4byte	.LVL11
+ 288 0137 EF010000 		.4byte	0x1ef
+ 289 013b 0A       		.uleb128 0xa
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 7
+
+
+ 290 013c 4C000000 		.4byte	.LVL12
+ 291 0140 05020000 		.4byte	0x205
+ 292 0144 4E010000 		.4byte	0x14e
+ 293 0148 0B       		.uleb128 0xb
+ 294 0149 01       		.uleb128 0x1
+ 295 014a 50       		.byte	0x50
+ 296 014b 01       		.uleb128 0x1
+ 297 014c 30       		.byte	0x30
+ 298 014d 00       		.byte	0
+ 299 014e 0A       		.uleb128 0xa
+ 300 014f 52000000 		.4byte	.LVL13
+ 301 0153 1B020000 		.4byte	0x21b
+ 302 0157 61010000 		.4byte	0x161
+ 303 015b 0B       		.uleb128 0xb
+ 304 015c 01       		.uleb128 0x1
+ 305 015d 50       		.byte	0x50
+ 306 015e 01       		.uleb128 0x1
+ 307 015f 30       		.byte	0x30
+ 308 0160 00       		.byte	0
+ 309 0161 09       		.uleb128 0x9
+ 310 0162 5C000000 		.4byte	.LVL15
+ 311 0166 EF010000 		.4byte	0x1ef
+ 312 016a 0A       		.uleb128 0xa
+ 313 016b 62000000 		.4byte	.LVL16
+ 314 016f 05020000 		.4byte	0x205
+ 315 0173 7D010000 		.4byte	0x17d
+ 316 0177 0B       		.uleb128 0xb
+ 317 0178 01       		.uleb128 0x1
+ 318 0179 50       		.byte	0x50
+ 319 017a 01       		.uleb128 0x1
+ 320 017b 31       		.byte	0x31
+ 321 017c 00       		.byte	0
+ 322 017d 0A       		.uleb128 0xa
+ 323 017e 68000000 		.4byte	.LVL17
+ 324 0182 1B020000 		.4byte	0x21b
+ 325 0186 90010000 		.4byte	0x190
+ 326 018a 0B       		.uleb128 0xb
+ 327 018b 01       		.uleb128 0x1
+ 328 018c 50       		.byte	0x50
+ 329 018d 01       		.uleb128 0x1
+ 330 018e 31       		.byte	0x31
+ 331 018f 00       		.byte	0
+ 332 0190 09       		.uleb128 0x9
+ 333 0191 6C000000 		.4byte	.LVL18
+ 334 0195 26020000 		.4byte	0x226
+ 335 0199 09       		.uleb128 0x9
+ 336 019a 70000000 		.4byte	.LVL19
+ 337 019e 31020000 		.4byte	0x231
+ 338 01a2 09       		.uleb128 0x9
+ 339 01a3 78000000 		.4byte	.LVL20
+ 340 01a7 05020000 		.4byte	0x205
+ 341 01ab 0C       		.uleb128 0xc
+ 342 01ac 80000000 		.4byte	.LVL21
+ 343 01b0 3C020000 		.4byte	0x23c
+ 344 01b4 0B       		.uleb128 0xb
+ 345 01b5 01       		.uleb128 0x1
+ 346 01b6 50       		.byte	0x50
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 8
+
+
+ 347 01b7 03       		.uleb128 0x3
+ 348 01b8 0A       		.byte	0xa
+ 349 01b9 F401     		.2byte	0x1f4
+ 350 01bb 00       		.byte	0
+ 351 01bc 00       		.byte	0
+ 352 01bd 0D       		.uleb128 0xd
+ 353 01be 7C010000 		.4byte	.LASF32
+ 354 01c2 0A       		.byte	0xa
+ 355 01c3 1207     		.2byte	0x712
+ 356 01c5 C9010000 		.4byte	0x1c9
+ 357 01c9 0E       		.uleb128 0xe
+ 358 01ca 76000000 		.4byte	0x76
+ 359 01ce 0F       		.uleb128 0xf
+ 360 01cf 6B000000 		.4byte	.LASF17
+ 361 01d3 6B000000 		.4byte	.LASF17
+ 362 01d7 05       		.byte	0x5
+ 363 01d8 54       		.byte	0x54
+ 364 01d9 0F       		.uleb128 0xf
+ 365 01da C8010000 		.4byte	.LASF18
+ 366 01de C8010000 		.4byte	.LASF18
+ 367 01e2 05       		.byte	0x5
+ 368 01e3 73       		.byte	0x73
+ 369 01e4 0F       		.uleb128 0xf
+ 370 01e5 62020000 		.4byte	.LASF19
+ 371 01e9 62020000 		.4byte	.LASF19
+ 372 01ed 05       		.byte	0x5
+ 373 01ee 71       		.byte	0x71
+ 374 01ef 0F       		.uleb128 0xf
+ 375 01f0 95010000 		.4byte	.LASF20
+ 376 01f4 95010000 		.4byte	.LASF20
+ 377 01f8 05       		.byte	0x5
+ 378 01f9 8A       		.byte	0x8a
+ 379 01fa 0F       		.uleb128 0xf
+ 380 01fb F0010000 		.4byte	.LASF21
+ 381 01ff F0010000 		.4byte	.LASF21
+ 382 0203 06       		.byte	0x6
+ 383 0204 29       		.byte	0x29
+ 384 0205 0F       		.uleb128 0xf
+ 385 0206 40020000 		.4byte	.LASF22
+ 386 020a 40020000 		.4byte	.LASF22
+ 387 020e 06       		.byte	0x6
+ 388 020f 26       		.byte	0x26
+ 389 0210 0F       		.uleb128 0xf
+ 390 0211 6F010000 		.4byte	.LASF23
+ 391 0215 6F010000 		.4byte	.LASF23
+ 392 0219 07       		.byte	0x7
+ 393 021a 29       		.byte	0x29
+ 394 021b 0F       		.uleb128 0xf
+ 395 021c 4C020000 		.4byte	.LASF24
+ 396 0220 4C020000 		.4byte	.LASF24
+ 397 0224 07       		.byte	0x7
+ 398 0225 26       		.byte	0x26
+ 399 0226 0F       		.uleb128 0xf
+ 400 0227 8D000000 		.4byte	.LASF25
+ 401 022b 8D000000 		.4byte	.LASF25
+ 402 022f 05       		.byte	0x5
+ 403 0230 75       		.byte	0x75
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 9
+
+
+ 404 0231 0F       		.uleb128 0xf
+ 405 0232 78000000 		.4byte	.LASF26
+ 406 0236 78000000 		.4byte	.LASF26
+ 407 023a 08       		.byte	0x8
+ 408 023b 29       		.byte	0x29
+ 409 023c 0F       		.uleb128 0xf
+ 410 023d 5A020000 		.4byte	.LASF27
+ 411 0241 5A020000 		.4byte	.LASF27
+ 412 0245 09       		.byte	0x9
+ 413 0246 76       		.byte	0x76
+ 414 0247 00       		.byte	0
+ 415              		.section	.debug_abbrev,"",%progbits
+ 416              	.Ldebug_abbrev0:
+ 417 0000 01       		.uleb128 0x1
+ 418 0001 11       		.uleb128 0x11
+ 419 0002 01       		.byte	0x1
+ 420 0003 25       		.uleb128 0x25
+ 421 0004 0E       		.uleb128 0xe
+ 422 0005 13       		.uleb128 0x13
+ 423 0006 0B       		.uleb128 0xb
+ 424 0007 03       		.uleb128 0x3
+ 425 0008 0E       		.uleb128 0xe
+ 426 0009 1B       		.uleb128 0x1b
+ 427 000a 0E       		.uleb128 0xe
+ 428 000b 55       		.uleb128 0x55
+ 429 000c 17       		.uleb128 0x17
+ 430 000d 11       		.uleb128 0x11
+ 431 000e 01       		.uleb128 0x1
+ 432 000f 10       		.uleb128 0x10
+ 433 0010 17       		.uleb128 0x17
+ 434 0011 00       		.byte	0
+ 435 0012 00       		.byte	0
+ 436 0013 02       		.uleb128 0x2
+ 437 0014 24       		.uleb128 0x24
+ 438 0015 00       		.byte	0
+ 439 0016 0B       		.uleb128 0xb
+ 440 0017 0B       		.uleb128 0xb
+ 441 0018 3E       		.uleb128 0x3e
+ 442 0019 0B       		.uleb128 0xb
+ 443 001a 03       		.uleb128 0x3
+ 444 001b 0E       		.uleb128 0xe
+ 445 001c 00       		.byte	0
+ 446 001d 00       		.byte	0
+ 447 001e 03       		.uleb128 0x3
+ 448 001f 16       		.uleb128 0x16
+ 449 0020 00       		.byte	0
+ 450 0021 03       		.uleb128 0x3
+ 451 0022 0E       		.uleb128 0xe
+ 452 0023 3A       		.uleb128 0x3a
+ 453 0024 0B       		.uleb128 0xb
+ 454 0025 3B       		.uleb128 0x3b
+ 455 0026 0B       		.uleb128 0xb
+ 456 0027 49       		.uleb128 0x49
+ 457 0028 13       		.uleb128 0x13
+ 458 0029 00       		.byte	0
+ 459 002a 00       		.byte	0
+ 460 002b 04       		.uleb128 0x4
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 10
+
+
+ 461 002c 24       		.uleb128 0x24
+ 462 002d 00       		.byte	0
+ 463 002e 0B       		.uleb128 0xb
+ 464 002f 0B       		.uleb128 0xb
+ 465 0030 3E       		.uleb128 0x3e
+ 466 0031 0B       		.uleb128 0xb
+ 467 0032 03       		.uleb128 0x3
+ 468 0033 08       		.uleb128 0x8
+ 469 0034 00       		.byte	0
+ 470 0035 00       		.byte	0
+ 471 0036 05       		.uleb128 0x5
+ 472 0037 16       		.uleb128 0x16
+ 473 0038 00       		.byte	0
+ 474 0039 03       		.uleb128 0x3
+ 475 003a 0E       		.uleb128 0xe
+ 476 003b 3A       		.uleb128 0x3a
+ 477 003c 0B       		.uleb128 0xb
+ 478 003d 3B       		.uleb128 0x3b
+ 479 003e 05       		.uleb128 0x5
+ 480 003f 49       		.uleb128 0x49
+ 481 0040 13       		.uleb128 0x13
+ 482 0041 00       		.byte	0
+ 483 0042 00       		.byte	0
+ 484 0043 06       		.uleb128 0x6
+ 485 0044 2E       		.uleb128 0x2e
+ 486 0045 01       		.byte	0x1
+ 487 0046 3F       		.uleb128 0x3f
+ 488 0047 19       		.uleb128 0x19
+ 489 0048 03       		.uleb128 0x3
+ 490 0049 0E       		.uleb128 0xe
+ 491 004a 3A       		.uleb128 0x3a
+ 492 004b 0B       		.uleb128 0xb
+ 493 004c 3B       		.uleb128 0x3b
+ 494 004d 0B       		.uleb128 0xb
+ 495 004e 27       		.uleb128 0x27
+ 496 004f 19       		.uleb128 0x19
+ 497 0050 49       		.uleb128 0x49
+ 498 0051 13       		.uleb128 0x13
+ 499 0052 8701     		.uleb128 0x87
+ 500 0054 19       		.uleb128 0x19
+ 501 0055 11       		.uleb128 0x11
+ 502 0056 01       		.uleb128 0x1
+ 503 0057 12       		.uleb128 0x12
+ 504 0058 06       		.uleb128 0x6
+ 505 0059 40       		.uleb128 0x40
+ 506 005a 18       		.uleb128 0x18
+ 507 005b 9742     		.uleb128 0x2117
+ 508 005d 19       		.uleb128 0x19
+ 509 005e 01       		.uleb128 0x1
+ 510 005f 13       		.uleb128 0x13
+ 511 0060 00       		.byte	0
+ 512 0061 00       		.byte	0
+ 513 0062 07       		.uleb128 0x7
+ 514 0063 34       		.uleb128 0x34
+ 515 0064 00       		.byte	0
+ 516 0065 03       		.uleb128 0x3
+ 517 0066 08       		.uleb128 0x8
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 11
+
+
+ 518 0067 3A       		.uleb128 0x3a
+ 519 0068 0B       		.uleb128 0xb
+ 520 0069 3B       		.uleb128 0x3b
+ 521 006a 0B       		.uleb128 0xb
+ 522 006b 49       		.uleb128 0x49
+ 523 006c 13       		.uleb128 0x13
+ 524 006d 00       		.byte	0
+ 525 006e 00       		.byte	0
+ 526 006f 08       		.uleb128 0x8
+ 527 0070 34       		.uleb128 0x34
+ 528 0071 00       		.byte	0
+ 529 0072 03       		.uleb128 0x3
+ 530 0073 08       		.uleb128 0x8
+ 531 0074 3A       		.uleb128 0x3a
+ 532 0075 0B       		.uleb128 0xb
+ 533 0076 3B       		.uleb128 0x3b
+ 534 0077 0B       		.uleb128 0xb
+ 535 0078 49       		.uleb128 0x49
+ 536 0079 13       		.uleb128 0x13
+ 537 007a 02       		.uleb128 0x2
+ 538 007b 17       		.uleb128 0x17
+ 539 007c 00       		.byte	0
+ 540 007d 00       		.byte	0
+ 541 007e 09       		.uleb128 0x9
+ 542 007f 898201   		.uleb128 0x4109
+ 543 0082 00       		.byte	0
+ 544 0083 11       		.uleb128 0x11
+ 545 0084 01       		.uleb128 0x1
+ 546 0085 31       		.uleb128 0x31
+ 547 0086 13       		.uleb128 0x13
+ 548 0087 00       		.byte	0
+ 549 0088 00       		.byte	0
+ 550 0089 0A       		.uleb128 0xa
+ 551 008a 898201   		.uleb128 0x4109
+ 552 008d 01       		.byte	0x1
+ 553 008e 11       		.uleb128 0x11
+ 554 008f 01       		.uleb128 0x1
+ 555 0090 31       		.uleb128 0x31
+ 556 0091 13       		.uleb128 0x13
+ 557 0092 01       		.uleb128 0x1
+ 558 0093 13       		.uleb128 0x13
+ 559 0094 00       		.byte	0
+ 560 0095 00       		.byte	0
+ 561 0096 0B       		.uleb128 0xb
+ 562 0097 8A8201   		.uleb128 0x410a
+ 563 009a 00       		.byte	0
+ 564 009b 02       		.uleb128 0x2
+ 565 009c 18       		.uleb128 0x18
+ 566 009d 9142     		.uleb128 0x2111
+ 567 009f 18       		.uleb128 0x18
+ 568 00a0 00       		.byte	0
+ 569 00a1 00       		.byte	0
+ 570 00a2 0C       		.uleb128 0xc
+ 571 00a3 898201   		.uleb128 0x4109
+ 572 00a6 01       		.byte	0x1
+ 573 00a7 11       		.uleb128 0x11
+ 574 00a8 01       		.uleb128 0x1
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 12
+
+
+ 575 00a9 31       		.uleb128 0x31
+ 576 00aa 13       		.uleb128 0x13
+ 577 00ab 00       		.byte	0
+ 578 00ac 00       		.byte	0
+ 579 00ad 0D       		.uleb128 0xd
+ 580 00ae 34       		.uleb128 0x34
+ 581 00af 00       		.byte	0
+ 582 00b0 03       		.uleb128 0x3
+ 583 00b1 0E       		.uleb128 0xe
+ 584 00b2 3A       		.uleb128 0x3a
+ 585 00b3 0B       		.uleb128 0xb
+ 586 00b4 3B       		.uleb128 0x3b
+ 587 00b5 05       		.uleb128 0x5
+ 588 00b6 49       		.uleb128 0x49
+ 589 00b7 13       		.uleb128 0x13
+ 590 00b8 3F       		.uleb128 0x3f
+ 591 00b9 19       		.uleb128 0x19
+ 592 00ba 3C       		.uleb128 0x3c
+ 593 00bb 19       		.uleb128 0x19
+ 594 00bc 00       		.byte	0
+ 595 00bd 00       		.byte	0
+ 596 00be 0E       		.uleb128 0xe
+ 597 00bf 35       		.uleb128 0x35
+ 598 00c0 00       		.byte	0
+ 599 00c1 49       		.uleb128 0x49
+ 600 00c2 13       		.uleb128 0x13
+ 601 00c3 00       		.byte	0
+ 602 00c4 00       		.byte	0
+ 603 00c5 0F       		.uleb128 0xf
+ 604 00c6 2E       		.uleb128 0x2e
+ 605 00c7 00       		.byte	0
+ 606 00c8 3F       		.uleb128 0x3f
+ 607 00c9 19       		.uleb128 0x19
+ 608 00ca 3C       		.uleb128 0x3c
+ 609 00cb 19       		.uleb128 0x19
+ 610 00cc 6E       		.uleb128 0x6e
+ 611 00cd 0E       		.uleb128 0xe
+ 612 00ce 03       		.uleb128 0x3
+ 613 00cf 0E       		.uleb128 0xe
+ 614 00d0 3A       		.uleb128 0x3a
+ 615 00d1 0B       		.uleb128 0xb
+ 616 00d2 3B       		.uleb128 0x3b
+ 617 00d3 0B       		.uleb128 0xb
+ 618 00d4 00       		.byte	0
+ 619 00d5 00       		.byte	0
+ 620 00d6 00       		.byte	0
+ 621              		.section	.debug_loc,"",%progbits
+ 622              	.Ldebug_loc0:
+ 623              	.LLST0:
+ 624 0000 12000000 		.4byte	.LVL2
+ 625 0004 19000000 		.4byte	.LVL3-1
+ 626 0008 0100     		.2byte	0x1
+ 627 000a 50       		.byte	0x50
+ 628 000b 28000000 		.4byte	.LVL6
+ 629 000f 2F000000 		.4byte	.LVL7-1
+ 630 0013 0100     		.2byte	0x1
+ 631 0015 50       		.byte	0x50
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 13
+
+
+ 632 0016 3E000000 		.4byte	.LVL10
+ 633 001a 45000000 		.4byte	.LVL11-1
+ 634 001e 0100     		.2byte	0x1
+ 635 0020 50       		.byte	0x50
+ 636 0021 54000000 		.4byte	.LVL14
+ 637 0025 5B000000 		.4byte	.LVL15-1
+ 638 0029 0100     		.2byte	0x1
+ 639 002b 50       		.byte	0x50
+ 640 002c 00000000 		.4byte	0
+ 641 0030 00000000 		.4byte	0
+ 642              		.section	.debug_aranges,"",%progbits
+ 643 0000 1C000000 		.4byte	0x1c
+ 644 0004 0200     		.2byte	0x2
+ 645 0006 00000000 		.4byte	.Ldebug_info0
+ 646 000a 04       		.byte	0x4
+ 647 000b 00       		.byte	0
+ 648 000c 0000     		.2byte	0
+ 649 000e 0000     		.2byte	0
+ 650 0010 00000000 		.4byte	.LFB63
+ 651 0014 82000000 		.4byte	.LFE63-.LFB63
+ 652 0018 00000000 		.4byte	0
+ 653 001c 00000000 		.4byte	0
+ 654              		.section	.debug_ranges,"",%progbits
+ 655              	.Ldebug_ranges0:
+ 656 0000 00000000 		.4byte	.LFB63
+ 657 0004 82000000 		.4byte	.LFE63
+ 658 0008 00000000 		.4byte	0
+ 659 000c 00000000 		.4byte	0
+ 660              		.section	.debug_line,"",%progbits
+ 661              	.Ldebug_line0:
+ 662 0000 B1010000 		.section	.debug_str,"MS",%progbits,1
+ 662      02008601 
+ 662      00000201 
+ 662      FB0E0D00 
+ 662      01010101 
+ 663              	.LASF30:
+ 664 0000 433A5C55 		.ascii	"C:\\Users\\nicho\\Desktop\\school\\research assista"
+ 664      73657273 
+ 664      5C6E6963 
+ 664      686F5C44 
+ 664      65736B74 
+ 665 002e 6E745C62 		.ascii	"nt\\bluetooth project\\bluetooth normal polling\\De"
+ 665      6C756574 
+ 665      6F6F7468 
+ 665      2070726F 
+ 665      6A656374 
+ 666 005e 7369676E 		.ascii	"sign01.cydsn\000"
+ 666      30312E63 
+ 666      7964736E 
+ 666      00
+ 667              	.LASF17:
+ 668 006b 55415254 		.ascii	"UART_1_Start\000"
+ 668      5F315F53 
+ 668      74617274 
+ 668      00
+ 669              	.LASF26:
+ 670 0078 50696E5F 		.ascii	"Pin_2_Read\000"
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 14
+
+
+ 670      325F5265 
+ 670      616400
+ 671              	.LASF9:
+ 672 0083 5F5F696E 		.ascii	"__int32_t\000"
+ 672      7433325F 
+ 672      7400
+ 673              	.LASF25:
+ 674 008d 55415254 		.ascii	"UART_1_ClearRxBuffer\000"
+ 674      5F315F43 
+ 674      6C656172 
+ 674      52784275 
+ 674      66666572 
+ 675              	.LASF12:
+ 676 00a2 666C6F61 		.ascii	"float\000"
+ 676      7400
+ 677              	.LASF11:
+ 678 00a8 75696E74 		.ascii	"uint8\000"
+ 678      3800
+ 679              	.LASF1:
+ 680 00ae 756E7369 		.ascii	"unsigned char\000"
+ 680      676E6564 
+ 680      20636861 
+ 680      7200
+ 681              	.LASF28:
+ 682 00bc 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 682      43313120 
+ 682      352E342E 
+ 682      31203230 
+ 682      31363036 
+ 683 00ef 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 683      20726576 
+ 683      6973696F 
+ 683      6E203233 
+ 683      37373135 
+ 684 0122 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 684      66756E63 
+ 684      74696F6E 
+ 684      2D736563 
+ 684      74696F6E 
+ 685              	.LASF5:
+ 686 014a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 686      20756E73 
+ 686      69676E65 
+ 686      6420696E 
+ 686      7400
+ 687              	.LASF3:
+ 688 015c 73686F72 		.ascii	"short unsigned int\000"
+ 688      7420756E 
+ 688      7369676E 
+ 688      65642069 
+ 688      6E7400
+ 689              	.LASF23:
+ 690 016f 50696E5F 		.ascii	"Pin_red_Read\000"
+ 690      7265645F 
+ 690      52656164 
+ 690      00
+ 691              	.LASF32:
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 15
+
+
+ 692 017c 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 692      52784275 
+ 692      66666572 
+ 692      00
+ 693              	.LASF13:
+ 694 0189 646F7562 		.ascii	"double\000"
+ 694      6C6500
+ 695              	.LASF31:
+ 696 0190 6D61696E 		.ascii	"main\000"
+ 696      00
+ 697              	.LASF20:
+ 698 0195 55415254 		.ascii	"UART_1_PutChar\000"
+ 698      5F315F50 
+ 698      75744368 
+ 698      617200
+ 699              	.LASF8:
+ 700 01a4 756E7369 		.ascii	"unsigned int\000"
+ 700      676E6564 
+ 700      20696E74 
+ 700      00
+ 701              	.LASF7:
+ 702 01b1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 702      206C6F6E 
+ 702      6720756E 
+ 702      7369676E 
+ 702      65642069 
+ 703              	.LASF18:
+ 704 01c8 55415254 		.ascii	"UART_1_GetRxBufferSize\000"
+ 704      5F315F47 
+ 704      65745278 
+ 704      42756666 
+ 704      65725369 
+ 705              	.LASF10:
+ 706 01df 696E7433 		.ascii	"int32_t\000"
+ 706      325F7400 
+ 707              	.LASF16:
+ 708 01e7 73697A65 		.ascii	"sizetype\000"
+ 708      74797065 
+ 708      00
+ 709              	.LASF21:
+ 710 01f0 50696E5F 		.ascii	"Pin_1_Read\000"
+ 710      315F5265 
+ 710      616400
+ 711              	.LASF6:
+ 712 01fb 6C6F6E67 		.ascii	"long long int\000"
+ 712      206C6F6E 
+ 712      6720696E 
+ 712      7400
+ 713              	.LASF29:
+ 714 0209 6D61696E 		.ascii	"main.c\000"
+ 714      2E6300
+ 715              	.LASF14:
+ 716 0210 63686172 		.ascii	"char\000"
+ 716      00
+ 717              	.LASF2:
+ 718 0215 73686F72 		.ascii	"short int\000"
+ 718      7420696E 
+ARM GAS  C:\Users\nicho\AppData\Local\Temp\ccrqZwdu.s 			page 16
+
+
+ 718      7400
+ 719              	.LASF4:
+ 720 021f 6C6F6E67 		.ascii	"long int\000"
+ 720      20696E74 
+ 720      00
+ 721              	.LASF15:
+ 722 0228 6C6F6E67 		.ascii	"long double\000"
+ 722      20646F75 
+ 722      626C6500 
+ 723              	.LASF0:
+ 724 0234 7369676E 		.ascii	"signed char\000"
+ 724      65642063 
+ 724      68617200 
+ 725              	.LASF22:
+ 726 0240 50696E5F 		.ascii	"Pin_1_Write\000"
+ 726      315F5772 
+ 726      69746500 
+ 727              	.LASF24:
+ 728 024c 50696E5F 		.ascii	"Pin_red_Write\000"
+ 728      7265645F 
+ 728      57726974 
+ 728      6500
+ 729              	.LASF27:
+ 730 025a 43794465 		.ascii	"CyDelay\000"
+ 730      6C617900 
+ 731              	.LASF19:
+ 732 0262 55415254 		.ascii	"UART_1_GetChar\000"
+ 732      5F315F47 
+ 732      65744368 
+ 732      617200
+ 733              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

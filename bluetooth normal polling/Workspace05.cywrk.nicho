@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Workspace05</v>
+<v>Workspace05\Design01</v>
+<v>Workspace05\Design01\TopDesign</v>
+<v>Workspace05\Design01\Design01.cydwr</v>
+<v>Workspace05\Design01\Design01.cydwr\Pins</v>
+<v>Workspace05\Design01\Design01.cydwr\Analog</v>
+<v>Workspace05\Design01\Design01.cydwr\Clocks</v>
+<v>Workspace05\Design01\Design01.cydwr\Interrupts</v>
+<v>Workspace05\Design01\Design01.cydwr\DMA</v>
+<v>Workspace05\Design01\Design01.cydwr\System</v>
+<v>Workspace05\Design01\Design01.cydwr\Directives</v>
+<v>Workspace05\Design01\Design01.cydwr\Flash Security</v>
+<v>Workspace05\Design01\Design01.cydwr\EEPROM</v>
+<v>Workspace05\Design01\Header Files</v>
+<v>Workspace05\Design01\Header Files\cyapicallbacks.h</v>
+<v>Workspace05\Design01\Source Files</v>
+<v>Workspace05\Design01\Source Files\main.c</v>
+<v>Workspace05\Design01\Generated_Source</v>
+<v>Workspace05\Design01\Generated_Source\PSoC5</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Workspace05</v>
+<v>Workspace05\Design01</v>
+<v>Workspace05\Design01\TopDesign</v>
+<v>Workspace05\Design01\Design01.cydwr</v>
+<v>Workspace05\Design01\Design01.cydwr\Pins</v>
+<v>Workspace05\Design01\Design01.cydwr\Analog</v>
+<v>Workspace05\Design01\Design01.cydwr\Clocks</v>
+<v>Workspace05\Design01\Design01.cydwr\Interrupts</v>
+<v>Workspace05\Design01\Design01.cydwr\DMA</v>
+<v>Workspace05\Design01\Design01.cydwr\System</v>
+<v>Workspace05\Design01\Design01.cydwr\Directives</v>
+<v>Workspace05\Design01\Design01.cydwr\Flash Security</v>
+<v>Workspace05\Design01\Design01.cydwr\EEPROM</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Workspace05</v>
+<v>Workspace05\Design01</v>
+<v>Workspace05\Design01\TopDesign</v>
+<v>Workspace05\Design01\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Workspace05</v>
+<v>Workspace05\Design01</v>
+<v>Workspace05\Design01\TopDesign</v>
+<v>Workspace05\Design01\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Workspace05</v>
+<v>Workspace05\Design01</v>
+<v>Workspace05\Design01\CortexM3</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_1.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_2.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_red.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_BOOT.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_INT.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_IntClock.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_1_PM.lst</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Design01.elf</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Design01.hex</v>
+<v>Workspace05\Design01\CortexM3\ARM_GCC_541\Debug\Design01.map</v>
+<v>Workspace05\Design01\Design01.gpdsc</v>
+<v>Workspace05\Design01\Design01.rpt</v>
+<v>Workspace05\Design01\Design01_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Workspace05</v>
+<v>Workspace05\Design01</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Workspace05</v>
+<v>Workspace05\Design01</v>
+<v>Workspace05\Design01\PSoC 5LP Architecture TRM</v>
+<v>Workspace05\Design01\CY8C58LP Family Datasheet</v>
+<v>Workspace05\Design01\System Reference Guides</v>
+<v>Workspace05\Design01\System Reference Guides\cy_boot_v5_80</v>
+<v>Workspace05\Design01\cy_constant_v1_0.pdf</v>
+<v>Workspace05\Design01\cy_pins_v2_20</v>
+<v>Workspace05\Design01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Workspace05\Design01\UART_v2_50.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Workspace05</v>
+<v>Workspace05\Design01</v>
+<v>Workspace05\Design01\PSoC 5LP Architecture TRM</v>
+<v>Workspace05\Design01\CY8C58LP Family Datasheet</v>
+<v>Workspace05\Design01\System Reference Guides</v>
+<v>Workspace05\Design01\System Reference Guides\cy_boot_v5_80</v>
+<v>Workspace05\Design01\cy_constant_v1_0.pdf</v>
+<v>Workspace05\Design01\cy_pins_v2_20</v>
+<v>Workspace05\Design01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Workspace05\Design01\UART_v2_50.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\Design01.cydsn\main.c" />
+<name v=".\Design01.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Design01.cydsn\Design01.cydwr" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1605, 674" SelectedTabbedMdiWindow="9e430e21-4d5a-4ccf-8083-e398c2d3a10f"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="ee8f5fca-aab8-445b-b2eb-ee7486f97967" /><DocumentWindow Key="C:\Users\nicho\Desktop\school\research assistant\bluetooth project\bluetooth normal polling\Design01.cydsn\main.c" Guid="2a585571-f528-4aed-bc01-1f8f5e569001" /><DocumentWindow Key="C:\Users\nicho\Desktop\school\research assistant\bluetooth project\bluetooth normal polling\Design01.cydsn\TopDesign\TopDesign.cysch" Guid="9e430e21-4d5a-4ccf-8083-e398c2d3a10f" /><DocumentWindow Key="C:\Users\nicho\Desktop\school\research assistant\bluetooth project\bluetooth normal polling\Design01.cydsn\Design01.cydwr" Guid="40b41233-580a-4aa0-9f5b-8aba557933ae" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
